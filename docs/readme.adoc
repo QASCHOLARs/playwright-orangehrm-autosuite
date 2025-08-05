@@ -11,19 +11,38 @@ This project is a collection of tools and libraries designed to facilitate the a
 
 == Project Setup
 
+The project is merely planned to be developed with the Playwright framework, which is a Node.js library for browser automation. It allows you to write tests that can run in multiple browsers, including Chromium, Firefox, and WebKit. It is designed to be fast, reliable, and easy to use, making it a great choice for end-to-end testing of web applications. The project is structured to support modular test development, allowing for easy addition and modification of test cases as the application evolves. PlayWright supports various client libraries, including JavaScript, TypeScript, Python, C#, and Java, making it versatile for different development environments, but this project is focused on the JavaScript implementation.     
 
-Prerequisites:
+=== Prerequisites:
 
-- Node.js
-- Playwright
-- Git
-- 
+To setup the project, you will need to install the following tools/softwares in order to design and run the tests successfully.
 
-To set up the project, follow these steps:
+- Node.js (Download it from here: https://nodejs.org/en/download/)
+- Git (Download it from here: https://git-scm.com/downloads)
+- GitHub CLI (Download it from here: https://cli.github.com/)
+- Visual Studio Code (or any other code editor) (Download it from here: https://code.visualstudio.com/download).
 
-1. Clone the repository
-2. Install the dependencies
-3. Configure the environment variables
-4. Run the tests    
+Please verify the installations by running the following commands in your terminal to ensure that they are installed correctly.
+
+- node --version
+- npm --version
+- git --version
+- gh --version
+
+== Clone the Repository from the GitHub
+To clone the repository, you can use the following command in your terminal:
+
+gh repo clone <repository-url>
+
+Replace `<repository-url>` with the actual URL of the repository you want to clone. This will create a local copy of the repository on your machine.
+
+e.g
+gh repo clone QASCHOLARs/playwright-orangehrm-autosuite
 
 
+== Install Dependencies
+After cloning the repository, navigate to the project directory in your terminal and run the following command to install the necessary dependencies:
+
+cd playwright-orangehrm-autosuite
+- npm ci
+- npx playwright install
