@@ -1,0 +1,29 @@
+== Introduction
+
+This project is a collection of tools and libraries designed to facilitate the automation of Orange HRM application using the Playwright framework and its suite of tools. It includes various components such as:
+
+- Test scripts for different user scenarios
+- Page object models for better test organization
+- Custom utilities for handling common tasks
+- Integration with CI/CD pipelines for automated testing
+- Documentation for setup and usage 
+
+
+== Project Setup
+
+
+Prerequisites:
+
+- Node.js
+- Playwright
+- Git
+- 
+
+To set up the project, follow these steps:
+
+1. Clone the repository
+2. Install the dependencies
+3. Configure the environment variables
+4. Run the tests    
+
+
