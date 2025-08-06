@@ -30,14 +30,22 @@ export default defineConfig({
     ["allure-playwright"]
   ],
 
+
+
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
+    trace: 'on', // Enable tracing for all tests
+    screenshot: 'on', // Optional: Capture screenshots for traces
+    video: 'on', // Optional: Capture videos for additional context
+
+     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    //trace: 'on-first-retry',
   },
+  outputDir: './test-results', // Directory where traces are saved
+
 
   /* Configure projects for major browsers */
   projects: [
