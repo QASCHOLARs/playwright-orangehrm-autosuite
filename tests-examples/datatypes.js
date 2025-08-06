@@ -8,6 +8,7 @@
     let Currency; // Undefined - declared, but not initialized, So JS will treat it as undefined
     let Debt = 123n; //bigint - anything beyond 2 power 53-1 are represented as BigInt
 
+    //This is parked aside for the discussion
     //let firstName = Symbol('firstName');
     //console.log(firstName.toString);
 
