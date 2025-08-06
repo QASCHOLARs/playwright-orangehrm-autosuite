@@ -41,11 +41,20 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
+ /* {
+    name: 'Chromium',
+    use: { browserName: 'chromium', headless: false  },
+  },*/
+  {
+    name: 'Google Chrome',
+    use: { browserName: 'chromium', channel: 'chrome',  headless: false  },
+  },
+
+    /*{
       name: 'Google Chrome',
       use: { ...devices['Desktop Chrome'], headless: false },
     },
-
+*/
     /*{
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
