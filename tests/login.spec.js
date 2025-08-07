@@ -1,32 +1,31 @@
+const { test, expect , defineConfig, context } = require('@playwright/test');
+const {LoginPage} = require('../pages/login-page');
 
-import { test, expect } from '@playwright/test';
 
-const { loadConfig } = require('../utils/configLoader')
-const env = process.env.ENV || 'dev'; // Default to 'dev'
+const { loadConfig } = require('../utils/set-environment-loader');
+const env = process.env.ENV || 'qa'; // Default to 'dev'
+console.log("Environment: "+env);
 const config = loadConfig(env);
+console.log("Recieved: "+ config.baseURL);
 
 
-
-test('TCO-login to OrangeHRM', async ({ page }) => {
-  await page.goto(config.baseURL);
-  await page.getByRole('textbox', { name: 'Username' }).click();
-  await page.getByRole('textbox', { name: 'Username' }).fill(config.credentials.username);
-  await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill(config.credentials.password);
-  await page.getByRole('button', { name: 'Login' }).click();
-await page.locator('.oxd-icon.bi-caret-down-fill.oxd-userdropdown-icon').click();
-  await page.getByRole('menuitem', { name: 'Logout' }).click();
+test.describe('Login Feature', () => {
+test('TCO1-login to OrangeHRM with valid credentials @smoke', async ({ page,context }) => {
+    const loginPage = new LoginPage(page);
+    console.log("Base URL: "+config.baseURL);
+    await test.step("Open Browser and Navigate to OrangeHRM :"+config.baseURL, async () => {
+    await loginPage.navigateURL(config.baseURL);
+    });
+    await test.step("Login to the OrangeHRM with valid credentials", async () => {
+    await loginPage.login(config.credentials.username, config.credentials.password);
+    }); 
+    await test.step("Verify the Dashboard page", async () => {
+    //await loginPage.verifyDashboard();
+    });
+    await test.step("Logout from the OrangeHRM", async () => {
+    await loginPage.logout();
+    });
+  });
 });
 
-test('TC1-login to OrangeHRM', async ({ page }) => {
-  await page.goto(config.baseURL);
-  await page.getByRole('textbox', { name: 'Username' }).click();
-  await page.getByRole('textbox', { name: 'Username' }).fill(config.credentials.username);
-  await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill(config.credentials.password);
-  await page.getByRole('button', { name: 'Login' }).click();
-// await page.getByRole('listitem').filter({ hasText: 'Miguel Cruz' }).locator('i').click();
-await page.locator('.oxd-icon.bi-caret-down-fill.oxd-userdropdown-icon').click();
-await page.getByRole('menuitem', { name: 'Logout' }).click();
-});
 
