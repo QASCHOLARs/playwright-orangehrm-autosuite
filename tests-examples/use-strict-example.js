@@ -1,10 +1,9 @@
 //This example demonstrates the use of "use strict" in JavaScript.
-"use strict";
+'use strict';
 
 var x;
-x=10;
+x = 10;
 console.log(x);
 
-
-let y=10;
+let y = 10;
 console.log(y);

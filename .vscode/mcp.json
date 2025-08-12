@@ -4,9 +4,9 @@
       "command": "npx",
       "args": [
         "@playwright/mcp@latest",
-        "--browser=chrome",
+        "--browser=chrome"
         //"--headless",
-       // "--allowed-origins=https://playwright.dev"
+        // "--allowed-origins=https://playwright.dev"
       ]
     }
   }
