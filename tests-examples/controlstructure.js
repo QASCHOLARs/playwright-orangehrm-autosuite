@@ -70,3 +70,6 @@ for (let tableCount=1; tableCount<=3; tableCount++) {
         
     }
     }
+
+
+console.log (null == undefined);
