@@ -13,12 +13,12 @@ const memoSquare = memoizee(slowSquare);
 
 // 2) First call: does the work
 console.time('first');
-console.log(slowSquare(42)); // logs "Calculating..." then 1764
+console.log(memoSquare(42)); // logs "Calculating..." then 1764
 console.timeEnd('first');
 
 /*
 console.time("second");
-console.log(slowSquare(42)); // reads from the cache.
+console.log(memoSquare(42)); // reads from the cache.
 console.timeEnd("second");
 */
 
@@ -29,7 +29,10 @@ console.timeEnd('second');
 
 /*
 setTimeout(() => {
-  console.log(slowSquare(42)); // After ~3s: expired → Calculating... -> 3
+  console.log(memoSquare(42)); // After ~3s: expired → Calculating... -> 3
 }, 3200);
 
 */
+
+// Clear the whole cache
+//memoSquare.clear();
