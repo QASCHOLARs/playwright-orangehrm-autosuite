@@ -1,22 +1,23 @@
 let employeeAge = [25, 30, 35, 40, 45];
-console.log('Employee ages before 5 years increment: ' + employeeAge);
 
+console.log('Orginal Employee ages before 5 years increment: ' + employeeAge);
+//function created using the function keyword
 function employeeAgeAfterFiveYears() {
   for (let index = 0; index < employeeAge.length; index++) {
-    employeeAge[index] += 5;
+    employeeAge[index] += 5; //x+=3 = x= x+3
   }
 
   return employeeAge;
 }
 
 console.log(employeeAgeAfterFiveYears());
-console.log('Employee ages after 5 years increment: ' + employeeAge);
+//console.log('Employee ages after 5 years increment: ' + employeeAge);
 
 // Using arrow function
 let employeeAgeArrow = [25, 30, 35, 40, 45];
-console.log('Employee ages before 5 years increment: ' + employeeAgeArrow);
+console.log('Orginal Employee ages before 5 years increment: ' + employeeAgeArrow);
 
-const employeeAgeAfterFiveYearsArrow = () => {
+let employeeAgeAfterFiveYearsArrow = () => {
   for (let index = 0; index < employeeAgeArrow.length; index++) {
     employeeAgeArrow[index] += 5;
   }

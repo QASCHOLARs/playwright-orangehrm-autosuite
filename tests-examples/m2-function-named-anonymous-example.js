@@ -17,7 +17,7 @@ else
 console.log('Not Adult');
 console.log("Checking named functions -finished");
 
-//anonymous function i.e 
+//anonymous function i.e no name is given.
 console.log("Checking anonymous functions -started");
 let checkAdultAnonymous = function(age) {
   if (age >= 18) {
