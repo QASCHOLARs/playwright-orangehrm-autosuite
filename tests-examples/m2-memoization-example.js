@@ -23,16 +23,27 @@ console.timeEnd("second");
 */
 
 // 3) Second call with the same arg: served from cache
+//memoSquare.clear();
 console.time('second');
 console.log(memoSquare(42)); // no "Calculating...", instant 1764
 console.timeEnd('second');
 
-/*
-setTimeout(() => {
-  console.log(memoSquare(42)); // After ~3s: expired → Calculating... -> 3
-}, 3200);
 
-*/
+// Cache entries live 3 seconds; keep at most 3 different (a,b) pairs
+const memoAdd = memoizee(slowSquare, { maxAge: 3000, max: 3 });
+
+console.time('first');
+console.log(memoAdd(42)); 
+console.timeEnd('first');
+
+setTimeout(() => {
+  console.time('second');
+  console.log(memoAdd(42)); // After ~3s: expired → Calculating... -> 3
+  console.timeEnd('second');
+}, 2000);
+
+
+
 
 // Clear the whole cache
 //memoSquare.clear();
