@@ -2,8 +2,6 @@
 If you want to pick specific elements → destructure in parameters.
 If you want to process the entire array → accept array as users, then destructure inside. */
 
-
-
 const employeeDetails = [
   { name: 'John', age: 30, department: 'IT', duration: 5 },
   { name: 'Jane', age: 25, department: 'HR', duration: 3 },
@@ -53,10 +51,27 @@ function checkPromotion(promotionArray) {
 */
 
 //Answer 4:
+/*
 function checkPromotion(promotionArray) {
   for ({ name, duration } of promotionArray) {
     console.log(name, duration);
   }
- 
+*/
+//Answer 5;
+function checkPromotion(promotionArray) {
+  for (key in promotionArray) {
+    // console.log(key, promotionArray[key]);
+    const { name, duration } = promotionArray[key];
+    console.log(name, duration);
+    if (duration >= 5) {
+      console.log(name, 'is eligible for promotion');
+      promotionArray[key].promotionEligible = true;
+    } else {
+      console.log(name, 'is not eligible for promotion');
+      promotionArray[key].promotionEligible = false;
+    }
+  }
+}
+
 checkPromotion(employeeDetails); // Alice Bob
 console.log(employeeDetails);
