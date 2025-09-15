@@ -6,6 +6,10 @@ function Person(name, age) {
     this.sayHello = function() {
         console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
     };
+
+    Person.sayHi = function() {
+        console.log("Hi there!");
+    }
 }
 
 // Create a new instance of Person 
@@ -13,7 +17,7 @@ const person1 = new Person("John", 30);
 
 // Call the sayHello method on the person1 instance
 person1.sayHello(); // Output: Hello, my name is John and I am 30 years old.
-
+Person.sayHi();
 // Create another instance of Person
 const person2 = new Person("Alice", 25);        
 // Call the sayHello method on the person2 instance
