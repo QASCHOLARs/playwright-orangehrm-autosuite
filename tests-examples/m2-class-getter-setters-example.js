@@ -1,9 +1,9 @@
 //This code demonstrates getters and setters in a JavaScript class.
 
 class Person {
-  name = '';
-  age = 0;
-  location = '';
+  _name = '';
+  _age = 0;
+  _location = '';
 
   constructor(name, age, location) {
     this.name = name;
@@ -12,39 +12,50 @@ class Person {
   }
 
   get name() {
-    return this.name;
+    return this._name;
   }
 
   set name(value) {
-    this.name = value;
+    this._name = value;
   }
 
   get age() {
-    return this.age;
+    return this._age;
   }
 
   set age(value) {
-    this.age = value;
+    console.log('Setting age to:', value);
+    if (value < 0) {
+      this._age = 0 ;
+    } else {
+      this._age = value;
+    }
   }
   get location() {
-    return this.location;
+    return this._location;
   }
   set location(value) {
-    this.location = value;
+    console.log('Setting location to:', value);
+    this._location = value;
   }
 }
 //create an instance of Person
 const person1 = new Person('Chary', 30,'Hyderabad');
-console.log(person1.name); // Chary //get name() will be called.
-console.log(person1.age); // 30 //get age() will be called.
-person1.name = 'Doe'; //set name() will be called.
-person1.age = 31; //set age() will be called.
-console.log(person1.name); // Doe //get name() will be called.
-console.log(person1.age); // 31 //get age() will be called.
-console.log(person1.location); // '' //get location() will be called.
-person1.location = 'Bangalore'; //set location() will be called.
-console.log(person1.location); // Bangalore //get location() will be called.
 
+console.log(person1.name); // Chary //get _name() will be called.
+console.log(person1.age); // 30 //get _age() will be called.
+console.log(person1.location); // Hyderabad //get _location() will be called.
+
+person1.name = 'Doe'; //set _name() will be called.
+person1.age = -310; //set _age() will be called.
+person1.location = 'Bangalore'; //set _location() will be called.
+
+console.log(person1.name); // Doe //get _name() will be called.
+console.log(person1.age); // 31 //get _age() will be called.
+console.log(person1.location); // '' //get _location() will be called.
+
+
+/*
 console.log('================================');
 
 // Another instance to show independent state
@@ -58,3 +69,4 @@ console.log(person2.name); // Bob //get name() will be called.
 console.log(person2.age); // 32 //get age() will be called.
 person2.location = 'New York'; //set location() will be called.
 console.log(person2.location); // New York //get location() will be called.
+*/
