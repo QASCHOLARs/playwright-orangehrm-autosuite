@@ -12,6 +12,7 @@ const vehicle = {
 
 //create a new object that inherits from the prototype.
 const car = Object.create(vehicle);
+
 car.honk = function() {
     console.log("Car honked");
 };
