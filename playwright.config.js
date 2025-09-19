@@ -27,7 +27,8 @@ export default defineConfig({
     ['junit', { outputFile: 'test-results/results.xml' }], // Added: JUnit reporter for Jenkins
     ['html', { outputDir: 'playwright-report', open: 'never' }], // Modified: HTML report for CI, no auto-open
     ['list'], // Kept: For console output during local runs
-    ['allure-playwright'], // Kept: For Allure reporting if needed
+    ['allure-playwright'],
+    ['blob'], // Kept: For Allure reporting if needed
   ],
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */

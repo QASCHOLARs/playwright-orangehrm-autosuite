@@ -20,7 +20,7 @@
     "@playwright/test": "^1.54.1",
     "@reportportal/agent-js-playwright": "^5.1.11",
     "@types/node": "^24.1.0",
-    "allure-playwright": "^3.3.3",
+    "allure-playwright": "^3.4.1",
     "cross-env": "^10.0.0",
     "eslint": "^9.33.0",
     "eslint-config-prettier": "^10.1.8",
