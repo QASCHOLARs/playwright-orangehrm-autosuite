@@ -46,7 +46,7 @@ export default defineConfig({
   projects: [
     {
       name: 'Google Chrome',
-      use: { browserName: 'chromium', channel: 'chrome', headless: true }, // Modified: Enforce headless mode
+      use: { browserName: 'chromium', channel: 'chrome', headless: false }, // Modified: Enforce headless mode
     },
     // Commented out other browsers to simplify CI; uncomment if needed
     /*
