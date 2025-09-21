@@ -1,79 +1,64 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
-
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
 export default defineConfig({
   testDir: './tests',
-  /* Run tests in files in parallel */
-  fullyParallel: true, // Changed: Enable full parallelism for faster CI execution
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
+  fullyParallel: true,
   forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Optimize parallel tests for CI */
-  workers: process.env.CI ? 4 : undefined, // Changed: Increased workers for CI to leverage Docker resources
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
+  workers: process.env.CI ? 4 : undefined,
+
   reporter: [
-    ['junit', { outputFile: 'test-results/results.xml' }], // Added: JUnit reporter for Jenkins
-    ['html', { outputDir: 'playwright-report', open: 'never' }], // Modified: HTML report for CI, no auto-open
-    ['list'], // Kept: For console output during local runs
+    ['junit', { outputFile: 'test-results/results.xml' }],
+    ['html', { outputDir: 'playwright-report', open: 'never' }],
+    ['list'],
     ['allure-playwright'],
-    ['blob'], // Kept: For Allure reporting if needed
+    ['blob'],
   ],
 
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  /* Shared settings for all projects */
   use: {
-    trace: 'on', // Kept: Enable tracing for debugging
-    screenshot: 'on', // Kept: Capture screenshots for traces
-    video: 'retain-on-failure', // Modified: Only keep videos on failure to save space in CI
-    headless: true, // Added: Ensure headless mode for CI compatibility
-    viewport: { width: 1280, height: 720 }, // Added: Consistent viewport for CI
-    ignoreHTTPSErrors: true, // Added: Ignore HTTPS errors for flexibility
+    trace: 'on',
+    screenshot: 'on',
+    video: 'retain-on-failure',
+    headless: process.env.CI ? true : false, // headless in CI, headed locally
+    viewport: { width: 1280, height: 720 },
+    ignoreHTTPSErrors: true,
   },
-  outputDir: './test-results', // Kept: Consistent output directory for traces, screenshots, videos
 
-  /* Configure projects for major browsers */
+  outputDir: './test-results',
+
+  /* Define projects */
   projects: [
     {
-      name: 'Google Chrome',
-      use: { browserName: 'chromium', channel: 'chrome', headless: false }, // Modified: Enforce headless mode
+      name: 'chrome',
+      use: {
+        ...devices['Desktop Chrome'],
+        channel: 'chrome',
+        headless: process.env.CI ? true : false,
+      },
     },
-    // Commented out other browsers to simplify CI; uncomment if needed
     /*
     {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome'],
+        headless: process.env.CI ? true : false,
+      },
+    },
+    {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'], headless: true },
+      use: {
+        ...devices['Desktop Firefox'],
+        headless: process.env.CI ? true : false,
+      },
     },
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'], headless: true },
-    },
-    */
-    /* Test against mobile viewports (optional for CI) */
-    /*
-    {
-      name: 'Mobile Chrome',
-      use: { ...devices['Pixel 5'], headless: true },
-    },
-    */
+      use: {
+        ...devices['Desktop Safari'],
+        headless: process.env.CI ? true : false,
+      },
+    },*/
   ],
-
-  /* Run your local dev server before starting the tests (optional) */
-  /*
-  webServer: {
-    command: 'npm run start',
-    url: 'http://localhost:3000',
-    reuseExistingServer: !process.env.CI,
-  },
-  */
 });
