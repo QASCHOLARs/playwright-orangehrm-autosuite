@@ -5,7 +5,7 @@ function orderPizza() {
   return new Promise((resolve, reject) => {
     console.log("Pizza ordered...");
     setTimeout(() => {
-      const success = true; // change to false to see rejection
+      const success = false; // change to false to see rejection
       if (success) {
         resolve("Pizza is ready 🍕");
       } else {
@@ -15,7 +15,8 @@ function orderPizza() {
   });
 }
 
-const promiseObject = orderPizza()
+const promiseObject = orderPizza() //sneha
+
 console.log(promiseObject); // This will log a pending promise
 
 promiseObject.then((message) => {

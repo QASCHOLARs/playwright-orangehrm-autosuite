@@ -3,10 +3,10 @@
 function orderPizza() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const success = true;
+      const success = false;
       if (success) resolve("Pizza is ready 🍕");
       else reject("Oven broke 🔥");
-    }, 2000);
+    }, 4000);
   });
 }
 
@@ -18,6 +18,9 @@ async function eatDinner() {
     console.log("Now eating the pizza 😋");
   } catch (error) {
     console.log("Error:", error);
+  }
+ finally {
+    console.log("Dinner process completed.");
   }
 }
 
