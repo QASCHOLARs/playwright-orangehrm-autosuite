@@ -1,46 +1,46 @@
 //This file demonstrates the core concepts of arrays in JavaScript.
 
-let Orgfruits = ['kiwi','apple', 'banana', 'cherry', 'date', 'elderberry', 'fig', 'grape'];
-
+let Orgfruits = [
+  'kiwi',
+  'apple',
+  'banana',
+  'cherry',
+  'date',
+  'elderberry',
+  'fig',
+  'grape',
+];
 
 //basic for loop.
-for(let index=0;index<Orgfruits.length;index++) {
-    console.log(Orgfruits[index]);
+for (let index = 0; index < Orgfruits.length; index++) {
+  console.log(Orgfruits[index]);
 }
-
 
 // while loop
 let counter = 0;
-while (counter<Orgfruits.length)
-{
+while (counter < Orgfruits.length) {
   console.log(Orgfruits[counter]);
   counter++;
 }
 
-console.log ("end of while loop");
+console.log('end of while loop');
 //for .. of loop
 for (let fruit of Orgfruits) {
-    console.log(fruit);
+  console.log(fruit);
 }
 
-console.log ("end of for .. of  loop");
+console.log('end of for .. of  loop');
 
 for (let fruitElement in Orgfruits) {
-    console.log(fruitElement);
-    console.log(Orgfruits[fruitElement]);
+  console.log(fruitElement);
+  console.log(Orgfruits[fruitElement]);
 }
 
-console.log ("end of for .. in  loop");
-
-
+console.log('end of for .. in  loop');
 
 Orgfruits.forEach(function (element, index) {
   console.log(`${index}: ${element}`);
 });
-
-
-
-
 
 /*
 let Convfruits = Orgfruits.sort();

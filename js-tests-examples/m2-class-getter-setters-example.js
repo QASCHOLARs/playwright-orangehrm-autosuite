@@ -26,7 +26,7 @@ class Person {
   set age(value) {
     console.log('Setting age to:', value);
     if (value < 0) {
-      this._age = 0 ;
+      this._age = 0;
     } else {
       this._age = value;
     }
@@ -40,7 +40,7 @@ class Person {
   }
 }
 //create an instance of Person
-const person1 = new Person('Chary', 30,'Hyderabad');
+const person1 = new Person('Chary', 30, 'Hyderabad');
 
 console.log(person1.name); // Chary //get _name() will be called.
 console.log(person1.age); // 30 //get _age() will be called.
@@ -53,7 +53,6 @@ person1.location = 'Bangalore'; //set _location() will be called.
 console.log(person1.name); // Doe //get _name() will be called.
 console.log(person1.age); // 31 //get _age() will be called.
 console.log(person1.location); // '' //get _location() will be called.
-
 
 /*
 console.log('================================');

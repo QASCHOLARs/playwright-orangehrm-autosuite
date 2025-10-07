@@ -1,10 +1,14 @@
 const { test, expect, defineConfig, context } = require('@playwright/test');
 const { LoginPage } = require('../pages/login-page');
-
 const { loadConfig } = require('../utils/set-environment-loader');
 
-const env = process.env.ENV || 'qa'; // Default to 'dev'
+//import config1 from '../playwright.config.js';
+//console.log('BaseURL from Config: ' + config1.use.baseURL);
+
+const env = process.env.ENV ?? 'qa'; // Default to 'dev'
 console.log('Environment: ' + env);
+
+console.log('BaseURL Is:' + defineConfig.baseURL);
 
 const config = loadConfig(env);
 console.log('Recieved: ' + config.baseURL);

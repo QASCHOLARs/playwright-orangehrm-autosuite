@@ -2,7 +2,7 @@
 //It shows how to use private fields and methods to hide implementation details and expose only the necessary interface.
 //This is a simple example of a class with private fields and methods.
 class BankAccount {
-  #balance = 0; // private data member 
+  #balance = 0; // private data member
   #transactionHistory = []; // private data member
   name = ''; // public data member
 
@@ -33,7 +33,7 @@ class BankAccount {
     return this.#transactionHistory;
   }
   #getSystemMessage() {
-    console.log("Operation is finished");
+    console.log('Operation is finished');
   }
 }
 

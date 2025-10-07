@@ -4,25 +4,26 @@ function orderPizza() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const success = false;
-      if (success) resolve("Pizza is ready 🍕");
-      else reject("Oven broke 🔥");
+      if (success) resolve('Pizza is ready 🍕');
+      else reject('Oven broke 🔥');
     }, 4000);
   });
 }
 
 async function eatDinner() {
   try {
-    console.log("Ordering pizza...");
+    console.log('Ordering pizza...');
     const message = await orderPizza(); // wait for it
     console.log(message);
-    console.log("Now eating the pizza 😋");
+    console.log('Now eating the pizza 😋');
   } catch (error) {
-    console.log("Error:", error);
-  }
- finally {
-    console.log("Dinner process completed.");
+    console.log('Error:', error);
+  } finally {
+    console.log('Dinner process completed.');
   }
 }
 
 eatDinner();
-console.log("Performing other tasks while waiting for the dinner to be prepared...");
+console.log(
+  'Performing other tasks while waiting for the dinner to be prepared...'
+);

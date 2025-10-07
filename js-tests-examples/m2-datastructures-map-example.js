@@ -6,36 +6,34 @@
 //integer keys are sorted in ascending order
 
 const obj1 = {
-    name: "John",
-    age: 30,
-    city: "New York",
-    3: "three",
-    4: "four",
-    1: "one",
-    2: "two",
-  
-    printDetails: function() {
-        console.log(`Name: ${this.name}, Age: ${this.age}, City: ${this.city}`);
-    }
+  name: 'John',
+  age: 30,
+  city: 'New York',
+  3: 'three',
+  4: 'four',
+  1: 'one',
+  2: 'two',
+
+  printDetails: function () {
+    console.log(`Name: ${this.name}, Age: ${this.age}, City: ${this.city}`);
+  },
 };
 
-console.log("Object Details:");
+console.log('Object Details:');
 console.log(obj1);
-
 
 //iterate through the object
 
 for (let key in obj1) {
-       //console.log(typeof (obj1[key]));
-         console.log("----------");
-         console.log("Key:", key);
-         console.log("Key Type:", typeof key);
-         console.log("Value:", obj1[key]);
-         console.log("Value Type:", typeof obj1[key]);
-         console.log("----------");
-  }
+  //console.log(typeof (obj1[key]));
+  console.log('----------');
+  console.log('Key:', key);
+  console.log('Key Type:', typeof key);
+  console.log('Value:', obj1[key]);
+  console.log('Value Type:', typeof obj1[key]);
+  console.log('----------');
+}
 
-  
 /*
 
 //create a map for the above object

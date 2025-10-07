@@ -6,23 +6,23 @@ Imagine you order a pizza 🍕.
 You give the restaurant your phone number (callback function).
 When the pizza is ready, they call you back. */
 
-function orderPizza(callback) { //callback = eatPizza
-  console.log("Pizza ordered...");
+function orderPizza(callback) {
+  //callback = eatPizza
+  console.log('Pizza ordered...');
   setTimeout(() => {
-    console.log("Pizza is ready 🍕");
+    console.log('Pizza is ready 🍕');
     callback(sendFeedback); // Call back the customer
   }, 2000); // 2 seconds later
 }
 
 function eatPizza(callback) {
-  console.log("Now eating the pizza 😋");
+  console.log('Now eating the pizza 😋');
   callback(); // Call back to send feedback
 }
 
 function sendFeedback() {
-  console.log("Sending feedback to the restaurant 📞")
-  };
+  console.log('Sending feedback to the restaurant 📞');
+}
 
 orderPizza(eatPizza);
-console.log("Waiting for the pizza... ⏳");
-
+console.log('Waiting for the pizza... ⏳');

@@ -6,41 +6,39 @@ Interface provides what a class can do, but not how it does it.
 
 class RemotePlayback {
   play() {
-    throw new Error("play() must be implemented in subclass");
+    throw new Error('play() must be implemented in subclass');
   }
   pause() {
-    throw new Error("pause() must be implemented in subclass");
+    throw new Error('pause() must be implemented in subclass');
   }
   stop() {
-    throw new Error("stop() must be implemented in subclass");
+    throw new Error('stop() must be implemented in subclass');
   }
 }
 class VideoPlayer extends RemotePlayback {
-
   play() {
-    console.log("Playing video");
+    console.log('Playing video');
   }
   pause() {
-    console.log("Pausing video");
+    console.log('Pausing video');
   }
   stop() {
-    console.log("Stopping video");
+    console.log('Stopping video');
   }
   rewind() {
-    console.log("Rewinding video");
+    console.log('Rewinding video');
   }
 }
 
 class AudioPlayer extends RemotePlayback {
-
   play() {
-    console.log("Playing audio");
+    console.log('Playing audio');
   }
   pause() {
-    console.log("Pausing audio");
+    console.log('Pausing audio');
   }
   stop() {
-    console.log("Stopping audio");
+    console.log('Stopping audio');
   }
 }
 

@@ -18,7 +18,7 @@
   "devDependencies": {
     "@eslint/js": "^9.33.0",
     "@playwright/test": "^1.55.1",
-    "@reportportal/agent-js-playwright": "^5.1.11",
+    "@reportportal/agent-js-playwright": "^5.2.3",
     "@types/node": "^24.1.0",
     "allure-playwright": "^3.4.1",
     "cross-env": "^10.0.0",
@@ -27,6 +27,7 @@
     "eslint-plugin-playwright": "^2.2.2",
     "eslint-plugin-prettier": "^5.5.4",
     "globals": "^16.3.0",
+    "monocart-reporter": "^2.9.23",
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1"
   },

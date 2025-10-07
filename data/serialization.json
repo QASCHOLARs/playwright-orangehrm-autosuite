@@ -1,6 +1,6 @@
-{   
-    "name": "chary",
-    "age": 28,
-    "salary": 75000,
-    "department": "Engineering"
+{
+  "name": "chary",
+  "age": 28,
+  "salary": 75000,
+  "department": "Engineering"
 }

@@ -1,7 +1,7 @@
 //This code demonstrates the use of parameterized constructor, private and public data members in a class.
 
 class BankAccount {
-  #balance = 0; // private data member 
+  #balance = 0; // private data member
   #transactionHistory = []; // private data member
   name = ''; // public data member
 
@@ -9,8 +9,8 @@ class BankAccount {
   constructor(initialBalance, name) {
     this.#balance = initialBalance;
     this.name = name;
-  } 
-/*
+  }
+  /*
   //default constructor
     constructor() {
     console.log("Constructor is called");

@@ -15,7 +15,9 @@ console.log(employeeAgeAfterFiveYears());
 
 // Using arrow function
 let employeeAgeArrow = [25, 30, 35, 40, 45];
-console.log('Orginal Employee ages before 5 years increment: ' + employeeAgeArrow);
+console.log(
+  'Orginal Employee ages before 5 years increment: ' + employeeAgeArrow
+);
 
 let employeeAgeAfterFiveYearsArrow = () => {
   for (let index = 0; index < employeeAgeArrow.length; index++) {

@@ -12,9 +12,9 @@ const empDetails = {
     [
     name: 'John Doe',
   position: 'Software Engineer',
-  salary: 50000
-}
-];
+  salary: 50000],
+
+    };
 
 let { name, position, salary, company = 'ABC Corp' } = empDetails[0];
 console.log(`Employee Name: ${name}`);

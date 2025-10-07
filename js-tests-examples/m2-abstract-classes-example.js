@@ -5,18 +5,18 @@
 
 // Abstract base class for Test Cases
 class TestCase {
-    name;
+  name;
   constructor(name) {
     if (new.target.name === TestCase) {
       console.log('which class is being instantiated:', new.target.name);
-      throw new Error("Cannot instantiate abstract class TestCase directly");
+      throw new Error('Cannot instantiate abstract class TestCase directly');
     }
     this.name = name;
   }
 
   // Abstract method (must be overridden)
   runTest() {
-    throw new Error("runTest() must be implemented in subclass");
+    throw new Error('runTest() must be implemented in subclass');
   }
 
   // Common behavior for all test cases
@@ -31,7 +31,7 @@ class TestCase {
   // Template method (skeleton of test execution)
   execute() {
     this.setup();
-    this.runTest();  // Must be provided by child class
+    this.runTest(); // Must be provided by child class
     this.teardown();
   }
 }
@@ -39,7 +39,7 @@ class TestCase {
 // Child test case: Login Test
 class LoginTest extends TestCase {
   constructor(username) {
-    super("LoginTest");
+    super('LoginTest');
     this.username = username;
   }
 
@@ -52,7 +52,7 @@ class LoginTest extends TestCase {
 // Child test case: Payment Test
 class PaymentTest extends TestCase {
   constructor(amount) {
-    super("PaymentTest");
+    super('PaymentTest');
     this.amount = amount;
   }
 
@@ -63,7 +63,7 @@ class PaymentTest extends TestCase {
 }
 
 // ✅ Usage
-const t1 = new LoginTest("charyUser");
+const t1 = new LoginTest('charyUser');
 t1.execute();
 
 const t2 = new PaymentTest(500);

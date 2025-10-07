@@ -8,29 +8,25 @@ function checkAdult(age) {
     return false;
   }
 }
-console.log("Checking named functions -started");
+console.log('Checking named functions -started');
 let isAdult = checkAdult(20);
 
-if (isAdult)
-console.log('Adult');
-else
-console.log('Not Adult');
-console.log("Checking named functions -finished");
+if (isAdult) console.log('Adult');
+else console.log('Not Adult');
+console.log('Checking named functions -finished');
 
 //anonymous function i.e no name is given.
-console.log("Checking anonymous functions -started");
-let checkAdultAnonymous = function(age) {
+console.log('Checking anonymous functions -started');
+let checkAdultAnonymous = function (age) {
   if (age >= 18) {
     return true;
   } else {
     return false;
   }
-}
+};
 
 let isAdultCheck = checkAdultAnonymous(10);
 
-if (isAdultCheck)
-console.log('Adult');
-else
-console.log('Not Adult');
-console.log("Checking anonymous functions -finished");
+if (isAdultCheck) console.log('Adult');
+else console.log('Not Adult');
+console.log('Checking anonymous functions -finished');

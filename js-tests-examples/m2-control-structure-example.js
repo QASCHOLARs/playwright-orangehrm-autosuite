@@ -1,5 +1,4 @@
-
-//conditionals 
+//conditionals
 // if, if else, else if, switch
 
 //This code demonstrates if condition
@@ -12,7 +11,6 @@ if (age >= 60) {
 } else {
     console.log("You are minor");
 } */
-
 
 /* let age = 60;
 
@@ -61,15 +59,12 @@ do {
 console.log("Exited do while loop");
  */
 
+for (let tableCount = 1; tableCount <= 3; tableCount++) {
+  console.log('Table of ' + tableCount);
 
-for (let tableCount=1; tableCount<=3; tableCount++) {
-    console.log("Table of " + tableCount);
+  for (let i = 1; i <= 10; i++) {
+    console.log(tableCount + ' x ' + i + ' = ' + tableCount * i);
+  }
+}
 
-    for (let i=1; i<=10; i++) {
-        console.log(tableCount + " x " + i + " = " + tableCount*i);
-        
-    }
-    }
-
-
-console.log (null == undefined);
+console.log(null == undefined);

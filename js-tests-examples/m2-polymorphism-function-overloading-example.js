@@ -6,7 +6,6 @@ function greet(name, age) {
   }
 }
 
-
 greet('Chary'); // Hello, Chary!
 greet('Chary', 22); // Hello, Chary! You are 44 years old.
 

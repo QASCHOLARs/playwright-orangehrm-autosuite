@@ -5,7 +5,6 @@ console.log('The value of the symbol', code);
 console.log('The value of the symbol', typeof code);
 console.log('The value of the symbol', code.toString());
 
-
 const bookDetails = {
   title: 'The Great Gatsby',
   author: 'F. Scott Fitzgerald',
@@ -20,7 +19,7 @@ const bookDetails = {
     console.log(`Author: ${author}`);
     console.log(`Year: ${year}`);
     console.log(`Code: ${this[code]}`);
-  }
+  },
 };
 
 const { title, author: myauthor, year: myyear } = bookDetails;
@@ -36,6 +35,5 @@ for (const attribute in bookDetails) {
 }
   */
 
-
- console.log(bookDetails.hasOwnProperty('title')); 
- console.log("100" in bookDetails);
+console.log(bookDetails.hasOwnProperty('title'));
+console.log('100' in bookDetails);

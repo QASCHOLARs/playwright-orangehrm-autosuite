@@ -2,8 +2,8 @@
 
 class Person {
   static species = 'Homo Sapiens';
-  #name='';
-  #age=0;
+  #name = '';
+  #age = 0;
 
   constructor(name, age) {
     this.#name = name;

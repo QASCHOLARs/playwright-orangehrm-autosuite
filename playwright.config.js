@@ -1,5 +1,15 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+import fs from 'fs';
+const { RPconfig } = require('./report-portal.config.js');
+
+const timestampLocal = new Date()
+  .toLocaleString()
+  .replace(/[ :,/]/g, '-')
+  .replace(/-+/g, '-');
+
+const resultsDir = `test-results/allure-results/${timestampLocal}`;
+fs.mkdirSync(resultsDir, { recursive: true });
 
 export default defineConfig({
   testDir: './tests',
@@ -9,15 +19,35 @@ export default defineConfig({
   workers: process.env.CI ? 4 : undefined,
 
   reporter: [
-    ['junit', { outputFile: 'test-results/results.xml' }],
-    ['html', { outputDir: 'playwright-report', open: 'never' }],
-    ['list'],
-    ['allure-playwright'],
-    ['blob'],
+    ['list', { printSteps: true, verbose: true, open: 'never' }],
+    ['dot', { verbosity: 'verbose', open: 'never' }],
+    ['junit', { outputFile: `test-results/${timestampLocal}/results.xml` }],
+    [
+      'html',
+      {
+        outputFolder: `test-results/playwright-report/${timestampLocal}`,
+        open: 'never',
+      },
+    ],
+    ['allure-playwright', { outputFolder: resultsDir, open: 'never' }],
+    ['blob', { outputFile: `test-results/${timestampLocal}/results.blob` }],
+    ['json', { outputFile: `test-results/${timestampLocal}/results.json` }],
+    ['line', { outputFile: `test-results/${timestampLocal}/results.line` }],
+    ['github', { outputDir: 'github-results' }], // GitHub Actions
+    [
+      'monocart-reporter',
+      {
+        name: 'My Test Report',
+        outputFile: `test-results/${timestampLocal}/monocart-report/index.html`,
+      },
+    ],
+    // @ts-ignore
+    ['@reportportal/agent-js-playwright', RPconfig],
   ],
 
   /* Shared settings for all projects */
   use: {
+    baseURL: 'https://opensource-demo.orangehrmlive.com/',
     trace: 'on',
     screenshot: 'on',
     video: 'retain-on-failure',
@@ -31,11 +61,10 @@ export default defineConfig({
   /* Define projects */
   projects: [
     {
-      name: 'chrome',
+      name: 'Google Chrome',
       use: {
         ...devices['Desktop Chrome'],
         channel: 'chrome',
-        headless: process.env.CI ? true : false,
       },
     },
     /*
@@ -60,5 +89,13 @@ export default defineConfig({
         headless: process.env.CI ? true : false,
       },
     },*/
+    {
+      name: 'Mobile Chrome',
+      use: {
+        ...devices['iPhone 12 Pro'],
+        browserName: 'chromium',
+        channel: 'chrome',
+      },
+    },
   ],
 });
