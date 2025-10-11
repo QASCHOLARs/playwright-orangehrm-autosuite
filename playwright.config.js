@@ -14,9 +14,10 @@ fs.mkdirSync(resultsDir, { recursive: true });
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
-  forbidOnly: !!process.env.CI,
+  forbidOnly: !!process.env.CI, //--forbid-only
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 4 : undefined,
+  timeout: 60000, // 60 seconds per test
 
   reporter: [
     ['list', { printSteps: true, verbose: true, open: 'never' }],
@@ -54,6 +55,8 @@ export default defineConfig({
     headless: process.env.CI ? true : false, // headless in CI, headed locally
     viewport: { width: 1280, height: 720 },
     ignoreHTTPSErrors: true,
+    //timeout: 60000, // 60 seconds
+    //actionTimeout: newLocal, // 30 seconds
   },
 
   outputDir: './test-results',
